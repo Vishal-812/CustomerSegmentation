@@ -2,18 +2,17 @@
 ## Project Overview
 Segmented ~2,200 retail customers into 4 distinct groups using KMeans and Hierarchical Clustering, based on demographic and purchasing behavior (income, age, spending, channel preference). Applied rigorous data cleaning, outlier handling, and cluster validation (Silhouette, Davies-Bouldin, cophenetic correlation) to ensure robust, interpretable segments for targeted marketing.
 
+---
 ## Problem Statement
 The objective of this project is to **Segment customers** from a retail/marketing dataset (demographics + purchase behavior across web, catalog, and store channels) into meaningful groups to support targeted marketing strategies.
 
 ---
-
 ## Dataset
 The dataset contains information about customers:
 
 ~2,200 customers with features including income, age, education, marital status, spending across 6 product categories, purchase counts by channel, campaign response history, and recency.
 
 ---
-
 ## Project Workflow
 ```mermaid
 flowchart LR
@@ -29,7 +28,6 @@ flowchart LR
     I --> J[Business Insights]
 ```
 ---
-
 ## Exploratory Data Analysis
 1. **55%** of customers are from age group **40-60** years old. We can create a new feature **AgeGroup** based on this.
 
@@ -59,7 +57,6 @@ flowchart LR
 | **AcceptedAny** | Binary indicator (1/0) showing whether the customer accepted at least one marketing campaign. |
 
 ---  
-
 ### Key findings:
  - **Average income increases substantially with age**. The 18–29 age group has the lowest average income, while customers aged 60–69 and 70+ have the highest average income.
 
@@ -75,20 +72,17 @@ flowchart LR
 | 2233 | 9432 | 1977 | Graduation | Together | 666666.0 | 1 | 0 | 02-06-2013 | 23 | 9 | ... | 6 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 11 | 0 |
 
 ---
-
 ## Data Preprocessing
 - **log(1+x)** transformation to `Income`, `NumCatalogPurchases`, `NumWebPurchases` features and **sqrt** transfomrton to `NumStorePurchases`.
 - z-score standardization.
 
 ---
-
 ## Unsupervised Machine Learning Models
 
 - KMeans Clustering
 - Hierarchical Clustering
 
 ---
-
 ## Model Evaluation
 
 The clustering models were evaluated using the following metrics:
@@ -96,24 +90,25 @@ The clustering models were evaluated using the following metrics:
 ### 1. WCSS (Within-Cluster Sum of Squares)
 
 **Range:** [0, infinity)
+
 **Preferred:** Lower value
 
 **Interpretation:** Measures the compactness of clusters by calculating the total squared distance of observations from their respective cluster centroids. Lower WCSS indicates more compact clusters. It is primarily used with the **Elbow Method** to determine an appropriate number of clusters.
 
 ---
-
 ### 2. Silhouette Score
 
 **Range:** [-1, 1]
+
 **Preferred:** Higher value, ideally closer to **1**
 
 **Interpretation:** Measures how well each observation fits within its assigned cluster compared with other clusters. Values close to 1 indicate well-separated and compact clusters, values around 0 indicate overlapping clusters, and negative values may indicate incorrect cluster assignments.
 
 ---
-
 ### 3. Davies-Bouldin Index (DBI)
 
 **Range:** [0, infinity)
+
 **Preferred:** Lower value, ideally closer to **0**
 
 **Interpretation:** Measures the similarity between clusters based on their compactness and separation. Lower DBI indicates more compact and better-separated clusters.
@@ -137,7 +132,6 @@ The clustering models were evaluated using the following metrics:
 | **Cophenetic Correlation Coefficient** | Higher, ideally closer to **1** |
   
 ---
-
 ## Four Customer Segments — Quick Summary
 
 ### 1. High-Value Middle-Aged Spenders
@@ -176,12 +170,12 @@ The clustering models were evaluated using the following metrics:
 - **Demographics:** Highest proportion of widowed customers.
 - **Profile:** Older, lower-income customers with limited spending and overall purchasing engagement.
 ---
-
 ## Project Structure
 
 Clone the repository:
 
 git clone (https://github.com/Vishal-812/CustomerSegmentation.git)
+
 cd customer_segmentation
 
 Create a virtual environment:
@@ -197,11 +191,7 @@ Install dependencies:
 pip install -r requirements.txt
 
 ---
-
 ## License
 This project is licensed under the MIT License.
 
 ---
-
-
-
